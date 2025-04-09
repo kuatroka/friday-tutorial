@@ -1,0 +1,19 @@
+.animated-guestbook {
+  font-family: ui-monospace, monospace;
+  font-size: 3rem;
+  color: white;
+  white-space: pre;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.blinking-cursor {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

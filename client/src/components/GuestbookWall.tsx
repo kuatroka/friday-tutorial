@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Icon from './Icon';
-import './GuestbookWall.css';
-import { IconEntry } from '../types';
+import React, { useState, useEffect } from "react";
+import Icon from "./Icon";
+import "./GuestbookWall.css";
+import { IconEntry } from "../types";
 
 const GuestbookWall: React.FC = () => {
   const [entries, setEntries] = useState<IconEntry[]>([]);
@@ -11,7 +11,7 @@ const GuestbookWall: React.FC = () => {
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const response = await fetch('/api/icons');
+        const response = await fetch("/api/icons");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -19,8 +19,8 @@ const GuestbookWall: React.FC = () => {
         setEntries(data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching guestbook entries:', err);
-        setError('Failed to load guestbook entries. Please try again later.');
+        console.error("Error fetching guestbook entries:", err);
+        setError("Failed to load guestbook entries. Please try again later.");
         setLoading(false);
       }
     };
@@ -47,11 +47,6 @@ const GuestbookWall: React.FC = () => {
 
   return (
     <div className="guestbook-wall">
-      <div className="guestbook-header">
-        <h2>Our Virtual Guestbook</h2>
-        <p>Engineers who've been here and left their mark</p>
-      </div>
-      
       <div className="entries-grid">
         {entries.map((entry) => (
           <div key={entry.id} className="guestbook-entry">
@@ -61,14 +56,14 @@ const GuestbookWall: React.FC = () => {
               </div>
               <div className="entry-info">
                 <h3>{entry.componentName}</h3>
-                {entry.date && <div className="entry-date">Signed on {entry.date}</div>}
+                {entry.date && (
+                  <div className="entry-date">Signed on {entry.date}</div>
+                )}
               </div>
             </div>
-            
-            <div className="entry-message">
-              {entry.message}
-            </div>
-            
+
+            <div className="entry-message">{entry.message}</div>
+
             <div className="icon-sizes">
               <div className="icon-size">
                 <span>S</span>
@@ -87,7 +82,7 @@ const GuestbookWall: React.FC = () => {
                 <Icon svgContent={entry.svgContent} size="xlarge" />
               </div>
             </div>
-            
+
             <div className="entry-footer">
               <div className="signature">~ {entry.contributor}</div>
             </div>
