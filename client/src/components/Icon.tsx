@@ -1,17 +1,16 @@
 import React from 'react';
-import { IconSize } from '../types';
-
-interface IconProps {
-  svgContent: string;
-  size?: IconSize;
-}
+import { IconProps, IconSize } from '../types';
 
 interface SizeStyles {
   width: string;
   height: string;
 }
 
-const Icon: React.FC<IconProps> = ({ svgContent, size = 'medium' }) => {
+interface EnhancedIconProps extends IconProps {
+  component: React.ComponentType<IconProps>;
+}
+
+const Icon: React.FC<EnhancedIconProps> = ({ component: IconComponent, size = 'medium', color, className, style: customStyle, ...props }) => {
   const sizeClasses: Record<IconSize, SizeStyles> = {
     small: { width: '24px', height: '24px' },
     medium: { width: '48px', height: '48px' },
@@ -19,14 +18,12 @@ const Icon: React.FC<IconProps> = ({ svgContent, size = 'medium' }) => {
     xlarge: { width: '144px', height: '144px' }
   };
 
-  const style = sizeClasses[size] || sizeClasses.medium;
+  const style = { ...sizeClasses[size], ...customStyle };
 
   return (
-    <div 
-      className={`icon icon-${size}`} 
-      style={style}
-      dangerouslySetInnerHTML={{ __html: svgContent }}
-    />
+    <div className={`icon icon-${size} ${className || ''}`} style={style}>
+      <IconComponent color={color} {...props} />
+    </div>
   );
 };
 
