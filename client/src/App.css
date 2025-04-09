@@ -1,20 +1,19 @@
 .App {
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .App-header {
-  background-color: #5d4037;
+  background-color: #000000;
   padding: 30px;
   color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .App-header h1 {
   margin: 0;
   font-size: 3rem;
-  font-family: 'Brush Script MT', cursive;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: "Inter", sans-serif;
 }
 
 .App-header p {
@@ -23,18 +22,34 @@
   opacity: 0.9;
 }
 
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
+  display: block;
+  text-align: left;
+  line-height: 1.2;
+  font-size: 1rem;
+  margin: 0;
+}
+
 main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0;
-  background-color: #f9f7f1;
+  background-color: #ffffff;
 }
 
 footer {
   margin-top: 40px;
   padding: 20px;
-  background-color: #5d4037;
+  background-color: #000000;
   color: white;
   font-size: 0.9rem;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
 }

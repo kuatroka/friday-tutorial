@@ -1,22 +1,36 @@
-import React from 'react';
-import './App.css';
-import GuestbookWall from './components/GuestbookWall';
+import React from "react";
+import "./App.css";
+import GuestbookWall from "./components/GuestbookWall";
+import AnimatedGuestbook from "./components/AnimatedGuestbook";
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Friday's Virtual Guestbook</h1>
-        <p>Leave your mark with a custom icon and a friendly message</p>
+        <div className="header-container">
+          <div className="ascii-art">
+            {`
+      ███████╗██████╗ ██╗██████╗  █████╗ ██╗   ██╗
+      ██╔════╝██╔══██╗██║██╔══██╗██╔══██╗╚██╗ ██╔╝
+      █████╗  ██████╔╝██║██║  ██║███████║ ╚████╔╝
+      ██╔══╝  ██╔══██╗██║██║  ██║██╔══██║  ╚██╔╝
+      ██║     ██║  ██║██║██████╔╝██║  ██║   ██║
+      ╚═╝     ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝   ╚═╝
+`}
+          </div>
+          <AnimatedGuestbook />
+        </div>
       </header>
       <main>
         <GuestbookWall />
       </main>
       <footer>
-        <p>Friday Tutorial - Virtual Guestbook | Sign the book by submitting a PR</p>
+        <p>
+          Friday Tutorial - Virtual Guestbook | Sign the book by submitting a PR
+        </p>
       </footer>
     </div>
   );
-}
+};
 
 export default App;
