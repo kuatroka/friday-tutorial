@@ -1,0 +1,153 @@
+.guestbook-wall {
+  padding: 20px;
+  background-color: #f9f7f1;
+  min-height: 100vh;
+}
+
+.guestbook-header {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: 'Brush Script MT', cursive;
+}
+
+.guestbook-header h2 {
+  font-size: 3rem;
+  color: #5d4037;
+  margin-bottom: 10px;
+}
+
+.guestbook-header p {
+  font-size: 1.2rem;
+  color: #7d6e63;
+}
+
+.entries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.guestbook-entry {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  border-left: 5px solid #8d6e63;
+}
+
+.guestbook-entry:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.guestbook-entry:nth-child(odd):hover {
+  transform: translateY(-5px) rotate(-1deg);
+}
+
+.entry-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px dotted #e0e0e0;
+  padding-bottom: 15px;
+}
+
+.entry-icon {
+  margin-right: 15px;
+  color: #5d4037;
+}
+
+.entry-info h3 {
+  margin: 0;
+  color: #5d4037;
+  font-size: 1.5rem;
+}
+
+.entry-date {
+  font-size: 0.9rem;
+  color: #9e9e9e;
+  margin-top: 5px;
+}
+
+.entry-message {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #424242;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.entry-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.icon-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px 0;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.icon-size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.icon-size span {
+  font-size: 0.8rem;
+  color: #757575;
+  margin-bottom: 5px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contributor {
+  font-style: italic;
+  color: #5d4037;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.loading, .error, .empty-state {
+  text-align: center;
+  padding: 60px;
+  color: #757575;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.empty-state h2 {
+  color: #5d4037;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 2.5rem;
+}
+
+.empty-state p {
+  color: #7d6e63;
+  font-size: 1.2rem;
+}
+
+.signature {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.5rem;
+  color: #5d4037;
+  margin-top: 10px;
+}

@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App-header {
+  background-color: #5d4037;
+  padding: 30px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-family: 'Brush Script MT', cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.App-header p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #f9f7f1;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #5d4037;
+  color: white;
+  font-size: 0.9rem;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
