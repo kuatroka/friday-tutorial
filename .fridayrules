@@ -1,29 +1,77 @@
 # Friday Rules for Virtual Guestbook Project
 
+## Workflow Guidelines
+
+- Create a new branch for each guestbook entry
+- Name branches with format: feature/guestbook-entry-[username]-[date]
+- Ensure SVG icons are optimized and render well at all sizes
+- Include a personal message with each guestbook entry
+- Ensure icon names are unique
+- Ask clarifying questions if the user hasn't provided a personal message or icon description
+
+## Coding Standards
+
+- Use TypeScript for all new components
+- Follow existing code style and formatting
+- SVG icons should be created as React components in the src/icons directory
+- Each icon component should accept standard props like color, size, className, and style
+
+## Guestbook Entry Requirements
+
+- Each entry must have a unique ID and component name
+- Create a corresponding icon component in src/icons directory
+- Include contributor name and date
+- Personal message should be meaningful and related to your experience
+- Add your new icon component to the icons/index.ts file
+
+## Icon Generation Guidelines
+
+- Icons should be AI-generated SVG files
+- SVG dimensions should be 24x24 viewBox
+- Use simple, clean designs with limited colors
+- Icons should be meaningful and related to the contributor or their message
+- Icons must adhere to the Content Guidelines (no inappropriate imagery)
+- SVG code should be optimized and minified
+- Ensure the SVG has no external dependencies
+- Test that the icon renders correctly at different sizes (S, M, L, XL)
+- Icons should have unique names from each other
+
+## Content Guidelines
+
+- All content must be appropriate for a public page with a broad audience
+- No inappropriate, indecent, or unprofessional messages or icons
+- No offensive, explicit, or controversial content
+- No political, religious, or divisive messaging
+- Icons and messages should be positive, constructive, and respectful
+- Content should be suitable for all ages and professional environments
+
 ## Code Base Architecture
 
-- /client - Next.js TypeScript frontend
-  - /client/src/components - React components for the guestbook UI
-  - /client/src/icons - SVG icon components contributed by users
-  - /client/src/data - Contains guestbook.json for data storage
-  - /client/pages - Next.js page components
+- Next.js TypeScript frontend at project root
+  - /src/components - React components for the guestbook UI (AnimatedGuestbook, GuestbookWall, Icon)
+  - /src/icons - SVG icon components contributed by users
+  - /src/data - Contains guestbook.json with icon entries
+  - /src/mockApi.ts - Mock API implementation for the guestbook
+  - /src/setupMockApi.ts - Mock API setup using fetch interceptor
+  - /pages - Next.js page components with TailwindCSS styling
 
 ## Development Setup
 
-- Client: `cd client && npm install && npm run dev` (runs on default Next.js port)
+- `npm install && npm run dev` (runs on default Next.js port)
 
 ## Testing Guidelines
 
 - No explicit testing configuration is currently set up in the project
+- MSW (Mock Service Worker) is used for API mocking
 - To add tests, consider using Jest and React Testing Library with Next.js
 
 ## Linting Guidelines
 
-- Client: Uses ESLint with next/core-web-vitals configuration
-  - Configuration in client/package.json under "eslintConfig"
-  - Run linting with `cd client && npx eslint .`
+- Uses ESLint with next/core-web-vitals configuration
+  - Configuration in package.json under "eslintConfig"
+  - Run linting with `npx eslint .`
 
 ## Build and Deployment
 
-- Build: `cd client && npm run build`
-- Start: `cd client && npm start` (runs on port 3002)
+- Build: `npm run build`
+- Start: `npm start`
