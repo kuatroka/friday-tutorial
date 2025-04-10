@@ -18,7 +18,7 @@ const AnimatedGuestbook: React.FC = () => {
   }, [displayedText, fullText, isComplete]);
 
   return (
-    <div className="font-mono text-2xl md:text-3xl text-white py-2 md:py-0 md:ml-4 text-center self-end">
+    <div className="font-mono text-2xl md:text-3xl text-white dark:text-black py-2 md:py-0 md:ml-4 text-center self-end">
       <span>{displayedText}</span>
       <span className="animate-blink">|</span>
     </div>

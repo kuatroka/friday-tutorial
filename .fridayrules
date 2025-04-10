@@ -57,7 +57,7 @@
 
 ## Development Setup
 
-- `npm install && npm run dev` (runs on default Next.js port)
+- `npm install && npm run dev`
 
 ## Testing Guidelines
 
