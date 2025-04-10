@@ -1,21 +1,21 @@
 import React from "react";
-import GuestbookWall from "./components/GuestbookWall";
-import AnimatedGuestbook from "./components/AnimatedGuestbook";
+import GuestbookWall from "../src/components/GuestbookWall";
+import AnimatedGuestbook from "../src/components/AnimatedGuestbook";
 
-const App: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <div className="text-center font-sans">
       <header className="bg-black text-white p-6 shadow-md">
         <div className="flex justify-center">
           <div className="inline-flex flex-col md:flex-row items-center md:items-end justify-center max-w-full overflow-hidden">
             <div className="font-mono whitespace-pre text-center md:text-center text-xs xs:text-sm sm:text-base md:text-lg mx-auto">
-              <pre className="m-0 p-0 inline-block">{`
-███████╗██████╗ ██╗██████╗  █████╗ ██╗   ██╗
-██╔════╝██╔══██╗██║██╔══██╗██╔══██╗╚██╗ ██╔╝
-█████╗  ██████╔╝██║██║  ██║███████║ ╚████╔╝ 
-██╔══╝  ██╔══██╗██║██║  ██║██╔══██║  ╚██╔╝  
-██║     ██║  ██║██║██████╔╝██║  ██║   ██║   
-╚═╝     ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   
+              <pre className="m-0 p-0 inline-block text-left">{`
+    ███████╗██████╗ ██╗██████╗  █████╗ ██╗   ██╗
+    ██╔════╝██╔══██╗██║██╔══██╗██╔══██╗╚██╗ ██╔╝
+    █████╗  ██████╔╝██║██║  ██║███████║ ╚████╔╝ 
+    ██╔══╝  ██╔══██╗██║██║  ██║██╔══██║  ╚██╔╝  
+    ██║     ██║  ██║██║██████╔╝██║  ██║   ██║   
+    ╚═╝     ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   
 `}</pre>
             </div>
             <AnimatedGuestbook />
@@ -51,7 +51,7 @@ const App: React.FC = () => {
             to say and what you want your icon to look like
           </li>
           <li>
-            Follow Friday's guidance to complete your entry and submit a PR
+            Follow Friday&apos;s guidance to complete your entry and submit a PR
           </li>
         </ol>
       </section>
@@ -67,4 +67,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Home;
