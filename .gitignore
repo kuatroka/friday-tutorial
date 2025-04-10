@@ -4,6 +4,7 @@ node_modules/
 # Production build files
 build/
 dist/
+.next/
 
 # Environment variables
 .env
