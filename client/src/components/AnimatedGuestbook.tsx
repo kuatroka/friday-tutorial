@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./AnimatedGuestbook.css";
 
 const AnimatedGuestbook: React.FC = () => {
   const [displayedText, setDisplayedText] = useState("");
@@ -19,9 +18,9 @@ const AnimatedGuestbook: React.FC = () => {
   }, [displayedText, fullText, isComplete]);
 
   return (
-    <div className="animated-guestbook">
+    <div className="font-mono text-2xl md:text-3xl text-white py-2 md:py-0 md:ml-4 text-center self-end">
       <span>{displayedText}</span>
-      <span className="blinking-cursor">|</span>
+      <span className="animate-blink">|</span>
     </div>
   );
 };
