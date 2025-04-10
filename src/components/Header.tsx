@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "./ThemeProvider";
-import Image from "next/image";
+import { FixedNextImage } from "./FixedNextImage";
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -10,7 +10,7 @@ export function Header() {
       <div className="border-b border-zinc-200 dark:border-zinc-700">
         <nav className="flex justify-between items-center px-4 md:px-8 py-4 container mx-auto">
           <a href="https://headstart.nyc" className="flex items-center">
-            <Image
+            <FixedNextImage
               src="https://www.headstart.nyc/logo.png"
               alt="Headstart Logo"
               className="h-8 w-8 rounded-full"

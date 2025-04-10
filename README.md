@@ -4,39 +4,46 @@ A virtual guestbook application that allows engineers to contribute SVG icons as
 
 ## Project Structure
 
-- `/client` - React TypeScript frontend with mock API
+- Next.js TypeScript frontend with mock API
+  - `/src/components` - React components for the guestbook UI
+  - `/src/icons` - SVG icon components contributed by users
+  - `/src/data` - Contains guestbook.json with icon entries
+  - `/pages` - Next.js page components with TailwindCSS styling
 
 ## Getting Started
 
-### Frontend Setup
+### Setup
 
 ```bash
-cd client
 npm install
-npm start
+npm run dev
 ```
 
-The React app will run on http://localhost:3000
+The Next.js app will run on http://localhost:3000
 
 ## How to Sign the Guestbook
 
 To add your entry to the virtual guestbook, follow these steps:
 
 1. Create a new branch from the main branch
-2. Create a new SVG icon component in the `/client/src/icons` directory
+2. Create a new SVG icon component in the `/src/icons` directory
 3. Add your icon to the icons index file
 4. Submit a PR with your changes
 
 ### Step 1: Create an SVG Icon Component
 
-Create a new file in `/client/src/icons` named after your icon (e.g., `MyIcon.tsx`):
+Create a new file in `/src/icons` named after your icon (e.g., `MyIcon.tsx`):
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 const MyIcon: React.FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
       {/* Your SVG path data here */}
       <path d="..." />
     </svg>
@@ -48,12 +55,12 @@ export default MyIcon;
 
 ### Step 2: Add Your Icon to the Index File
 
-Add your icon component to the `/client/src/icons/index.ts` file:
+Add your icon component to the `/src/icons/index.ts` file:
 
 ```typescript
-import SmileyIcon from './SmileyIcon';
-import StarIcon from './StarIcon';
-import MyIcon from './MyIcon'; // Import your new icon
+import SmileyIcon from "./SmileyIcon";
+import StarIcon from "./StarIcon";
+import MyIcon from "./MyIcon"; // Import your new icon
 
 const iconComponents: { [key: string]: React.FC } = {
   SmileyIcon,
@@ -66,7 +73,7 @@ export default iconComponents;
 
 ### Step 3: Create a Guestbook Entry
 
-You'll need to add your entry to the guestbook data file at `/client/src/data/guestbook.json`. Make sure to include the following information:
+You'll need to add your entry to the guestbook data file at `/src/data/guestbook.json`. Make sure to include the following information:
 
 - **ID**: A unique identifier for your icon (e.g., "my-icon")
 - **Component Name**: The name of your icon component (e.g., "MyIcon")
@@ -81,6 +88,7 @@ Commit your changes and submit a PR with a title like "Sign guestbook: [Your Nam
 ## Guestbook Display
 
 Your entry will be displayed on the guestbook wall with:
+
 - Your personal message
 - Your custom icon in four different sizes
 - Your name as a signature
