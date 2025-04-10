@@ -2,6 +2,8 @@
 
 A virtual guestbook application that allows engineers to contribute SVG icons as components through PRs. The guestbook displays these icons along with personal messages, creating a collaborative wall of memories and contributions.
 
+**✨ Check out the live guestbook at [guestbook.codewithfriday.com](https://guestbook.codewithfriday.com) ✨**
+
 ## Project Structure
 
 - Next.js TypeScript frontend with mock API
