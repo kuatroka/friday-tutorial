@@ -30,23 +30,23 @@ const GuestbookWall: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="text-center py-16 text-gray-600">
+      <div className="text-center py-16 text-muted-foreground">
         Opening the guestbook...
       </div>
     );
   }
 
   if (error) {
-    return <div className="text-center py-16 text-black">{error}</div>;
+    return <div className="text-center py-16 text-foreground">{error}</div>;
   }
 
   if (entries.length === 0) {
     return (
       <div className="text-center py-16">
-        <h2 className="text-3xl font-bold text-black mb-4">
+        <h2 className="text-3xl font-bold text-foreground mb-4">
           Our Guestbook is Empty!
         </h2>
-        <p className="text-xl text-gray-700">
+        <p className="text-xl text-muted-foreground">
           Be the first to sign our guestbook by contributing your icon.
         </p>
       </div>
@@ -54,7 +54,7 @@ const GuestbookWall: React.FC = () => {
   }
 
   return (
-    <div className="py-5 bg-white min-h-screen">
+    <div className="py-5 bg-background min-h-screen">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-fr">
         {entries.map((entry) => {
           const IconComponent = iconComponents[entry.componentName];
@@ -67,29 +67,29 @@ const GuestbookWall: React.FC = () => {
           return (
             <div
               key={entry.id}
-              className="bg-white rounded-lg shadow-md p-6 border-l-4 border-black transition-transform hover:-translate-y-1 hover:rotate-1 hover:shadow-lg even:hover:-rotate-1 flex flex-col h-full"
+              className="bg-card text-card-foreground rounded-lg shadow-md p-6 border-l-4 border-primary transition-transform hover:-translate-y-1 hover:rotate-1 hover:shadow-lg even:hover:-rotate-1 flex flex-col h-full"
             >
-              <div className="flex items-center pb-4 mb-4 border-b-2 border-dotted border-gray-200">
-                <div className="mr-4 text-black">
-                  <Icon component={IconComponent} size="medium" />
+              <div className="flex items-center pb-4 mb-4 border-b-2 border-dotted border-border">
+                <div className="mr-4">
+                  <Icon component={IconComponent} size="medium" className="text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="relative group">
-                    <h3 className="text-xl font-bold text-black m-0 text-left truncate">
+                    <h3 className="text-xl font-bold text-foreground m-0 text-left truncate">
                       {entry.componentName}
                     </h3>
                     {/* Title tooltip - only show if title is truncated */}
                     {entry.componentName && entry.componentName.length > 20 && (
                       <div className="absolute left-0 top-full mt-1 w-full invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 z-50 hidden md:block">
-                        <div className="relative bg-gray-900 text-white text-sm rounded-md p-2 shadow-xl">
-                          <div className="absolute -top-2 left-4 transform w-4 h-4 rotate-45 bg-gray-900"></div>
+                        <div className="relative bg-popover text-popover-foreground text-sm rounded-md p-2 shadow-xl">
+                          <div className="absolute -top-2 left-4 transform w-4 h-4 rotate-45 bg-popover"></div>
                           {entry.componentName}
                         </div>
                       </div>
                     )}
                   </div>
                   {entry.date && (
-                    <div className="text-sm text-gray-600 mt-1 text-left">
+                    <div className="text-sm text-muted-foreground mt-1 text-left">
                       Signed on{" "}
                       {new Date(entry.date).toLocaleDateString("en-US", {
                         year: "numeric",
@@ -102,47 +102,47 @@ const GuestbookWall: React.FC = () => {
               </div>
 
               <div className="relative group">
-                <div className="font-sans text-left text-gray-800 leading-relaxed mb-4 text-base line-clamp-4 h-[6.5rem] overflow-hidden">
+                <div className="font-sans text-left text-foreground leading-relaxed mb-4 text-base line-clamp-4 h-[6.5rem] overflow-hidden">
                   {entry.message}
                 </div>
                 {entry.message && entry.message.length > 200 && (
                   <div className="absolute left-1/2 transform -translate-x-1/2 translate-y-0 w-[calc(100%-2rem)] invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 z-50 hidden md:block">
-                    <div className="relative bg-gray-900 text-white text-sm rounded-md p-3 shadow-xl break-words">
-                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-gray-900"></div>
+                    <div className="relative bg-popover text-popover-foreground text-sm rounded-md p-3 shadow-xl break-words">
+                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-popover"></div>
                       {entry.message}
                     </div>
                   </div>
                 )}
               </div>
 
-              <div className="flex flex-wrap justify-center bg-gray-100 p-4 rounded-lg mb-5">
+              <div className="flex flex-wrap justify-center bg-card p-4 rounded-lg mb-5 shadow-md border border-border">
                 <div className="flex flex-col items-center m-2">
-                  <span className="text-xs text-gray-600 mb-1">S</span>
-                  <Icon component={IconComponent} size="small" />
+                  <span className="text-xs font-medium text-foreground mb-1">S</span>
+                  <Icon component={IconComponent} size="small" color="currentColor" className="text-primary" />
                 </div>
                 <div className="flex flex-col items-center m-2">
-                  <span className="text-xs text-gray-600 mb-1">M</span>
-                  <Icon component={IconComponent} size="medium" />
+                  <span className="text-xs font-medium text-foreground mb-1">M</span>
+                  <Icon component={IconComponent} size="medium" color="currentColor" className="text-primary" />
                 </div>
                 <div className="flex flex-col items-center m-2">
-                  <span className="text-xs text-gray-600 mb-1">L</span>
-                  <Icon component={IconComponent} size="large" />
+                  <span className="text-xs font-medium text-foreground mb-1">L</span>
+                  <Icon component={IconComponent} size="large" color="currentColor" className="text-primary" />
                 </div>
                 <div className="flex flex-col items-center m-2">
-                  <span className="text-xs text-gray-600 mb-1">XL</span>
-                  <Icon component={IconComponent} size="xlarge" />
+                  <span className="text-xs font-medium text-foreground mb-1">XL</span>
+                  <Icon component={IconComponent} size="xlarge" color="currentColor" className="text-primary" />
                 </div>
               </div>
 
               <div className="mt-auto pt-3">
-                <div className="flex items-center text-xl font-sans text-black">
+                <div className="flex items-center text-xl font-sans text-foreground">
                   ~ {entry.contributor}
                   {entry.githubUsername && (
                     <a
                       href={`https://github.com/${entry.githubUsername}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-2 text-gray-700 hover:text-blue-600 transition-colors"
+                      className="ml-2 text-muted-foreground hover:text-primary transition-colors"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

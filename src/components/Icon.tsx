@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconProps, IconSize } from '../types';
+import { useTheme } from './ThemeProvider';
 
 interface SizeStyles {
   width: string;
@@ -11,6 +12,7 @@ interface EnhancedIconProps extends IconProps {
 }
 
 const Icon: React.FC<EnhancedIconProps> = ({ component: IconComponent, size = 'medium', color, className, style: customStyle, ...props }) => {
+  const { theme } = useTheme();
   const sizeClasses: Record<IconSize, SizeStyles> = {
     small: { width: '24px', height: '24px' },
     medium: { width: '48px', height: '48px' },
@@ -18,11 +20,14 @@ const Icon: React.FC<EnhancedIconProps> = ({ component: IconComponent, size = 'm
     xlarge: { width: '144px', height: '144px' }
   };
 
+  // If no color is provided, use the current color from the context
+  const iconColor = color || 'currentColor';
+  
   const style = { ...sizeClasses[size], ...customStyle };
 
   return (
     <div className={`icon icon-${size} ${className || ''}`} style={style}>
-      <IconComponent color={color} {...props} />
+      <IconComponent color={iconColor} {...props} />
     </div>
   );
 };
