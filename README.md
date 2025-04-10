@@ -4,21 +4,9 @@ A virtual guestbook application that allows engineers to contribute SVG icons as
 
 ## Project Structure
 
-- `/client` - React TypeScript frontend
-- `/server` - Node.js/Express TypeScript backend
+- `/client` - React TypeScript frontend with mock API
 
 ## Getting Started
-
-### Backend Setup
-
-```bash
-cd server
-npm install
-npm run build # Compile TypeScript
-npm run dev   # Run with hot-reload
-```
-
-The server will run on http://localhost:3001
 
 ### Frontend Setup
 
@@ -78,7 +66,7 @@ export default iconComponents;
 
 ### Step 3: Create a Guestbook Entry
 
-The server will automatically create an entry for your icon when you submit your PR. Make sure to include the following information in your PR description:
+You'll need to add your entry to the guestbook data file at `/client/src/data/guestbook.json`. Make sure to include the following information:
 
 - **ID**: A unique identifier for your icon (e.g., "my-icon")
 - **Component Name**: The name of your icon component (e.g., "MyIcon")
