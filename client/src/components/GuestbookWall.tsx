@@ -55,7 +55,7 @@ const GuestbookWall: React.FC = () => {
 
   return (
     <div className="py-5 bg-white min-h-screen">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-fr">
         {entries.map((entry) => {
           const IconComponent = iconComponents[entry.componentName];
 
@@ -67,18 +67,29 @@ const GuestbookWall: React.FC = () => {
           return (
             <div
               key={entry.id}
-              className="bg-white rounded-lg shadow-md p-6 border-l-4 border-black transition-transform hover:-translate-y-1 hover:rotate-1 hover:shadow-lg even:hover:-rotate-1"
+              className="bg-white rounded-lg shadow-md p-6 border-l-4 border-black transition-transform hover:-translate-y-1 hover:rotate-1 hover:shadow-lg even:hover:-rotate-1 flex flex-col h-full"
             >
               <div className="flex items-center pb-4 mb-4 border-b-2 border-dotted border-gray-200">
                 <div className="mr-4 text-black">
                   <Icon component={IconComponent} size="medium" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black m-0 text-left">
-                    {entry.componentName}
-                  </h3>
+                <div className="min-w-0 flex-1">
+                  <div className="relative group">
+                    <h3 className="text-xl font-bold text-black m-0 text-left truncate">
+                      {entry.componentName}
+                    </h3>
+                    {/* Title tooltip - only show if title is truncated */}
+                    {entry.componentName && entry.componentName.length > 20 && (
+                      <div className="absolute left-0 top-full mt-1 w-full invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 z-50 hidden md:block">
+                        <div className="relative bg-gray-900 text-white text-sm rounded-md p-2 shadow-xl">
+                          <div className="absolute -top-2 left-4 transform w-4 h-4 rotate-45 bg-gray-900"></div>
+                          {entry.componentName}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                   {entry.date && (
-                    <div className="text-sm text-gray-600 mt-1">
+                    <div className="text-sm text-gray-600 mt-1 text-left">
                       Signed on{" "}
                       {new Date(entry.date).toLocaleDateString("en-US", {
                         year: "numeric",
@@ -90,8 +101,18 @@ const GuestbookWall: React.FC = () => {
                 </div>
               </div>
 
-              <div className="font-sans text-gray-800 leading-relaxed mb-5 text-base">
-                {entry.message}
+              <div className="relative group">
+                <div className="font-sans text-left text-gray-800 leading-relaxed mb-4 text-base line-clamp-4 h-[6.5rem] overflow-hidden">
+                  {entry.message}
+                </div>
+                {entry.message && entry.message.length > 200 && (
+                  <div className="absolute left-1/2 transform -translate-x-1/2 translate-y-0 w-[calc(100%-2rem)] invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 z-50 hidden md:block">
+                    <div className="relative bg-gray-900 text-white text-sm rounded-md p-3 shadow-xl break-words">
+                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-gray-900"></div>
+                      {entry.message}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="flex flex-wrap justify-center bg-gray-100 p-4 rounded-lg mb-5">
@@ -113,7 +134,7 @@ const GuestbookWall: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-5">
+              <div className="mt-auto pt-3">
                 <div className="flex items-center text-xl font-sans text-black">
                   ~ {entry.contributor}
                   {entry.githubUsername && (
