@@ -4,6 +4,7 @@ import SmileyIcon from './SmileyIcon';
 import CompassIcon from './CompassIcon';
 import RobotIcon from './RobotIcon';
 import MoonIcon from './MoonIcon';
+import CoffeeIcon from './CoffeeIcon';
 import BookIcon from './BookIcon';
 
 const iconComponents: Record<string, React.FC<any>> = {
@@ -12,6 +13,7 @@ const iconComponents: Record<string, React.FC<any>> = {
   CompassIcon,
   RobotIcon,
   MoonIcon,
+  CoffeeIcon,
   BookIcon
 };
 
